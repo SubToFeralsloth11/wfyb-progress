@@ -1,8 +1,8 @@
 {
  "title": "Whatever Floats Your Boat",
  "subtitle": "Build progress \u2014 updates live",
- "updated": "2026-10-11T11:26:29+10:00",
- "current": "Wave 2 running: cargo & shop, gear items, chaos events, bigger boats.",
+ "updated": "2026-10-11T12:23:05+10:00",
+ "current": "Gear items, chaos events and bigger boats still being built.",
  "phases": [
   {
    "name": "1. Foundation",
@@ -282,30 +282,30 @@
     {
      "id": "cargo_types",
      "title": "Cargo catalogue (crates, piano, cow, chickens, ice, glass, fireworks...)",
-     "status": "active",
+     "status": "done",
      "detail": "",
-     "updated": "2026-10-11T11:23:38+10:00"
+     "updated": "2026-10-11T12:23:05+10:00"
     },
     {
      "id": "cargo_behaviour",
      "title": "Cargo damage, melting, spoiling, escaping animals, explosions",
-     "status": "active",
+     "status": "done",
      "detail": "",
-     "updated": "2026-10-11T11:23:38+10:00"
+     "updated": "2026-10-11T12:23:05+10:00"
     },
     {
      "id": "shop",
      "title": "Port shops with shelves and shopkeeper",
-     "status": "active",
+     "status": "done",
      "detail": "",
-     "updated": "2026-10-11T11:23:38+10:00"
+     "updated": "2026-10-11T12:23:05+10:00"
     },
     {
      "id": "helpers",
      "title": "Straps, cargo net, dolly, life-jacket rack",
-     "status": "active",
+     "status": "done",
      "detail": "",
-     "updated": "2026-10-11T11:23:38+10:00"
+     "updated": "2026-10-11T12:23:05+10:00"
     },
     {
      "id": "food",
@@ -522,6 +522,10 @@
   {
    "t": "2026-10-11T11:26:29+10:00",
    "msg": "Water, buoyancy, boat physics, Dinghy and Trawler finished (boats float, flood, sink, drive)."
+  },
+  {
+   "t": "2026-10-11T12:23:05+10:00",
+   "msg": "Cargo (20 types incl. cow, chickens, piano, fireworks), port shops, straps, nets, dolly and life-jacket rack finished."
   }
  ]
 }
