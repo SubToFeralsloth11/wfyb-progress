@@ -1,8 +1,8 @@
 {
  "title": "Whatever Floats Your Boat",
  "subtitle": "Build progress \u2014 updates live",
- "updated": "2026-10-11T11:23:38+10:00",
- "current": "Wave 2 running: cargo & shop, gear items, chaos events, bigger boats. Water & boats finishing.",
+ "updated": "2026-10-11T11:26:29+10:00",
+ "current": "Wave 2 running: cargo & shop, gear items, chaos events, bigger boats.",
  "phases": [
   {
    "name": "1. Foundation",
@@ -50,51 +50,51 @@
     {
      "id": "ocean",
      "title": "Ocean wave field shared by water shader and physics",
-     "status": "active",
+     "status": "done",
      "detail": "",
-     "updated": "2026-10-11T11:23:38+10:00"
+     "updated": "2026-10-11T11:26:29+10:00"
     },
     {
      "id": "water_vis",
      "title": "Cartoon water: foam, wake, spray, underwater fog",
-     "status": "active",
+     "status": "done",
      "detail": "",
-     "updated": "2026-10-11T11:23:38+10:00"
+     "updated": "2026-10-11T11:26:29+10:00"
     },
     {
      "id": "buoyancy",
      "title": "Buoyancy for boats, cargo, items, players",
-     "status": "active",
+     "status": "done",
      "detail": "",
-     "updated": "2026-10-11T11:23:38+10:00"
+     "updated": "2026-10-11T11:26:29+10:00"
     },
     {
      "id": "boat_base",
      "title": "Boat base: flooding, leaks, sinking, engine, fuel, fire, mooring",
-     "status": "active",
+     "status": "done",
      "detail": "",
-     "updated": "2026-10-11T11:23:38+10:00"
+     "updated": "2026-10-11T11:26:29+10:00"
     },
     {
      "id": "stations",
      "title": "Boat stations: helm, engine crank, pump, mooring lines, oars, horn, lights, anchor, fuel pump",
-     "status": "active",
+     "status": "done",
      "detail": "",
-     "updated": "2026-10-11T11:23:38+10:00"
+     "updated": "2026-10-11T11:26:29+10:00"
     },
     {
      "id": "dinghy",
      "title": "Dinghy (starter boat)",
-     "status": "active",
+     "status": "done",
      "detail": "",
-     "updated": "2026-10-11T11:23:38+10:00"
+     "updated": "2026-10-11T11:26:29+10:00"
     },
     {
      "id": "trawler",
      "title": "Fishing Trawler",
-     "status": "active",
+     "status": "done",
      "detail": "",
-     "updated": "2026-10-11T11:23:38+10:00"
+     "updated": "2026-10-11T11:26:29+10:00"
     },
     {
      "id": "ragdoll",
@@ -518,6 +518,10 @@
   {
    "t": "2026-10-11T11:23:38+10:00",
    "msg": "Progress page created."
+  },
+  {
+   "t": "2026-10-11T11:26:29+10:00",
+   "msg": "Water, buoyancy, boat physics, Dinghy and Trawler finished (boats float, flood, sink, drive)."
   }
  ]
 }
