@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Whatever Floats Your Boat — Build Progress</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--sea:#1d6fa3;--sea2:#3aa0d8;--sand:#fff6e5;--ink:#1b2a3a;--done:#2fbf71;--active:#ffb020;--pending:#b8c4d0;--card:#ffffff}
+*{box-sizing:border-box}
+body{margin:0;font-family:Fredoka,system-ui,sans-serif;color:var(--ink);background:linear-gradient(#8fd3ff,#3aa0d8 340px,#1d6fa3 900px,#134b70);min-height:100vh}
+header{text-align:center;padding:40px 16px 70px;position:relative;overflow:hidden}
+h1{font-size:clamp(2rem,6vw,3.6rem);margin:0;color:#fff;text-shadow:0 4px 0 #0f4c75}
+.sub{color:#eaf7ff;font-size:1.1rem;margin-top:6px}
+.boat{font-size:56px;display:inline-block;animation:bob 3s ease-in-out infinite}
+@keyframes bob{0%,100%{transform:translateY(0) rotate(-4deg)}50%{transform:translateY(-8px) rotate(4deg)}}
+.wave{position:absolute;left:0;right:0;bottom:-2px;height:60px;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 40'%3E%3Cpath d='M0 20 Q25 0 50 20 T100 20 T150 20 T200 20 V40 H0Z' fill='%23fff6e5'/%3E%3C/svg%3E") repeat-x;background-size:200px 60px;animation:wave 8s linear infinite}
+@keyframes wave{to{background-position-x:200px}}
+main{background:var(--sand);padding:10px 16px 60px}
+.wrap{max-width:980px;margin:0 auto}
+.summary{background:var(--card);border-radius:22px;padding:22px;box-shadow:0 6px 0 #e6d6b8;margin-top:-30px;position:relative}
+.bar{height:30px;background:#e8eef4;border-radius:15px;overflow:hidden;margin:12px 0 8px}
+.fill{height:100%;background:linear-gradient(90deg,#2fbf71,#7be495);border-radius:15px;transition:width .8s;display:flex;align-items:center;justify-content:flex-end;padding-right:12px;color:#fff;font-weight:700}
+.stats{display:flex;gap:18px;flex-wrap:wrap;font-weight:600}
+.dot{display:inline-block;width:12px;height:12px;border-radius:50%;margin-right:6px;vertical-align:-1px}
+.now{margin-top:12px;background:#fff3d6;border-radius:14px;padding:10px 14px}
+.phase{background:var(--card);border-radius:22px;padding:18px 22px;margin-top:22px;box-shadow:0 6px 0 #e6d6b8}
+.phase h2{margin:0 0 4px;display:flex;justify-content:space-between;align-items:center;gap:10px;font-size:1.35rem}
+.pill{font-size:.85rem;background:#eef3f8;border-radius:999px;padding:3px 12px;white-space:nowrap}
+.mini{height:8px;background:#e8eef4;border-radius:4px;overflow:hidden;margin:8px 0 10px}
+.mini div{height:100%;background:var(--done)}
+ul{list-style:none;margin:0;padding:0}
+li{display:flex;gap:12px;padding:9px 4px;border-top:1px dashed #e3e8ee;align-items:flex-start}
+.ic{flex:0 0 26px;height:26px;border-radius:50%;display:grid;place-items:center;color:#fff;font-weight:700;font-size:15px}
+.done .ic{background:var(--done)}
+.active .ic{background:var(--active);animation:pulse 1.4s infinite}
+.pending .ic{background:var(--pending)}
+@keyframes pulse{50%{transform:scale(1.15)}}
+.done .t{color:#4b5b6b}
+.t{font-weight:600}
+.d{font-size:.9rem;color:#6a7a8a;font-weight:400}
+.when{margin-left:auto;font-size:.78rem;color:#8a98a6;white-space:nowrap;padding-top:4px}
+.log{font-size:.92rem}
+.log li{border-top:1px dashed #e3e8ee}
+footer{text-align:center;color:#8a98a6;font-size:.85rem;margin-top:30px}
+</style>
+</head>
+<body>
+<header>
+  <div class="boat">⛵</div>
+  <h1 id="title">Whatever Floats Your Boat</h1>
+  <div class="sub" id="subtitle">Build progress</div>
+  <div class="wave"></div>
+</header>
+<main><div class="wrap">
+  <section class="summary">
+    <div class="stats" id="stats"></div>
+    <div class="bar"><div class="fill" id="fill" style="width:0%"></div></div>
+    <div class="now" id="now"></div>
+    <div class="d" id="updated" style="margin-top:8px"></div>
+  </section>
+  <div id="phases"></div>
+  <section class="phase"><h2>Recent updates</h2><ul class="log" id="log"></ul></section>
+  <footer>Refreshes automatically every 30 seconds.</footer>
+</div></main>
+<script>
+const ICON={done:"✓",active:"⟳",pending:"•"};
+const esc=s=>String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const ago=t=>{if(!t)return"";const s=(Date.now()-new Date(t))/1000;if(s<60)return"just now";if(s<3600)return Math.floor(s/60)+" min ago";if(s<86400)return Math.floor(s/3600)+" h ago";return new Date(t).toLocaleDateString()};
+async function load(){
+  let d;
+  try{d=await (await fetch("progress.json?"+Date.now(),{cache:"no-store"})).json()}catch(e){return}
+  document.getElementById("title").textContent=d.title;
+  document.getElementById("subtitle").textContent=d.subtitle;
+  const all=d.phases.flatMap(p=>p.steps);
+  const n=k=>all.filter(s=>s.status===k).length;
+  const pct=Math.round(n("done")/all.length*100);
+  document.getElementById("fill").style.width=pct+"%";
+  document.getElementById("fill").textContent=pct+"%";
+  document.getElementById("stats").innerHTML=
+    `<span><span class="dot" style="background:var(--done)"></span>${n("done")} done</span>`+
+    `<span><span class="dot" style="background:var(--active)"></span>${n("active")} in progress</span>`+
+    `<span><span class="dot" style="background:var(--pending)"></span>${n("pending")} to do</span>`+
+    `<span style="margin-left:auto">${all.length} steps total</span>`;
+  document.getElementById("now").innerHTML="<b>Right now:</b> "+esc(d.current);
+  document.getElementById("updated").textContent="Last update: "+ago(d.updated)+" ("+new Date(d.updated).toLocaleString()+")";
+  document.getElementById("phases").innerHTML=d.phases.map(p=>{
+    const done=p.steps.filter(s=>s.status==="done").length;
+    return `<section class="phase"><h2>${esc(p.name)}<span class="pill">${done} / ${p.steps.length}</span></h2>
+      <div class="mini"><div style="width:${done/p.steps.length*100}%"></div></div><ul>`+
+      p.steps.map(s=>`<li class="${s.status}"><span class="ic">${ICON[s.status]}</span><span><div class="t">${esc(s.title)}</div>${s.detail?`<div class="d">${esc(s.detail)}</div>`:""}</span><span class="when">${s.status==="pending"?"":ago(s.updated)}</span></li>`).join("")+
+      `</ul></section>`}).join("");
+  document.getElementById("log").innerHTML=d.log.slice(-15).reverse().map(l=>`<li><span class="when" style="margin:0;min-width:80px">${ago(l.t)}</span><span>${esc(l.msg)}</span></li>`).join("");
+}
+load();setInterval(load,30000);
+</script>
+</body>
+</html>

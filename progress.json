@@ -1,0 +1,523 @@
+{
+ "title": "Whatever Floats Your Boat",
+ "subtitle": "Build progress \u2014 updates live",
+ "updated": "2026-10-11T11:23:38+10:00",
+ "current": "Wave 2 running: cargo & shop, gear items, chaos events, bigger boats. Water & boats finishing.",
+ "phases": [
+  {
+   "name": "1. Foundation",
+   "steps": [
+    {
+     "id": "repo",
+     "title": "Git repo, GitHub remote, build branch",
+     "status": "done",
+     "detail": "Private repo + worktree on branch build/full-game.",
+     "updated": "2026-10-11T11:23:38+10:00"
+    },
+    {
+     "id": "skeleton",
+     "title": "Godot 4.7 project skeleton (Jolt physics, layers, autoloads)",
+     "status": "done",
+     "detail": "",
+     "updated": "2026-10-11T11:23:38+10:00"
+    },
+    {
+     "id": "contract",
+     "title": "Shared architecture contract (ARCHITECTURE.md)",
+     "status": "done",
+     "detail": "APIs every system codes against.",
+     "updated": "2026-10-11T11:23:38+10:00"
+    },
+    {
+     "id": "settings",
+     "title": "Settings + input map (LMB grab, RMB interact, WASD, etc.)",
+     "status": "done",
+     "detail": "",
+     "updated": "2026-10-11T11:23:38+10:00"
+    },
+    {
+     "id": "tests",
+     "title": "Headless test runner that fails on any engine error",
+     "status": "done",
+     "detail": "",
+     "updated": "2026-10-11T11:23:38+10:00"
+    }
+   ]
+  },
+  {
+   "name": "2. Core systems",
+   "steps": [
+    {
+     "id": "ocean",
+     "title": "Ocean wave field shared by water shader and physics",
+     "status": "active",
+     "detail": "",
+     "updated": "2026-10-11T11:23:38+10:00"
+    },
+    {
+     "id": "water_vis",
+     "title": "Cartoon water: foam, wake, spray, underwater fog",
+     "status": "active",
+     "detail": "",
+     "updated": "2026-10-11T11:23:38+10:00"
+    },
+    {
+     "id": "buoyancy",
+     "title": "Buoyancy for boats, cargo, items, players",
+     "status": "active",
+     "detail": "",
+     "updated": "2026-10-11T11:23:38+10:00"
+    },
+    {
+     "id": "boat_base",
+     "title": "Boat base: flooding, leaks, sinking, engine, fuel, fire, mooring",
+     "status": "active",
+     "detail": "",
+     "updated": "2026-10-11T11:23:38+10:00"
+    },
+    {
+     "id": "stations",
+     "title": "Boat stations: helm, engine crank, pump, mooring lines, oars, horn, lights, anchor, fuel pump",
+     "status": "active",
+     "detail": "",
+     "updated": "2026-10-11T11:23:38+10:00"
+    },
+    {
+     "id": "dinghy",
+     "title": "Dinghy (starter boat)",
+     "status": "active",
+     "detail": "",
+     "updated": "2026-10-11T11:23:38+10:00"
+    },
+    {
+     "id": "trawler",
+     "title": "Fishing Trawler",
+     "status": "active",
+     "detail": "",
+     "updated": "2026-10-11T11:23:38+10:00"
+    },
+    {
+     "id": "ragdoll",
+     "title": "Active ragdoll player (walk, sprint, jump, limp, knockout, get up)",
+     "status": "done",
+     "detail": "",
+     "updated": "2026-10-11T11:23:38+10:00"
+    },
+    {
+     "id": "grab",
+     "title": "Grabbing, carrying heavy things together, throwing, climbing",
+     "status": "done",
+     "detail": "",
+     "updated": "2026-10-11T11:23:38+10:00"
+    },
+    {
+     "id": "swim",
+     "title": "Swimming, life jackets, climbing back aboard",
+     "status": "done",
+     "detail": "",
+     "updated": "2026-10-11T11:23:38+10:00"
+    },
+    {
+     "id": "needs",
+     "title": "Hunger, thirst and effects (speed, steady, sick, wet, cold)",
+     "status": "done",
+     "detail": "",
+     "updated": "2026-10-11T11:23:38+10:00"
+    },
+    {
+     "id": "camera",
+     "title": "Third-person camera + bots for testing",
+     "status": "done",
+     "detail": "",
+     "updated": "2026-10-11T11:23:38+10:00"
+    },
+    {
+     "id": "hats",
+     "title": "Blobby characters, colours and 10 hats",
+     "status": "done",
+     "detail": "",
+     "updated": "2026-10-11T11:23:38+10:00"
+    },
+    {
+     "id": "net",
+     "title": "Direct-IP multiplayer (1-10 players), UPnP, version check, kick",
+     "status": "done",
+     "detail": "",
+     "updated": "2026-10-11T11:23:38+10:00"
+    },
+    {
+     "id": "replication",
+     "title": "Host-authoritative sync, late join, interpolation",
+     "status": "done",
+     "detail": "9 clients stable for 120 s on localhost.",
+     "updated": "2026-10-11T11:23:38+10:00"
+    },
+    {
+     "id": "voice",
+     "title": "Proximity voice chat (3D, muffled underwater)",
+     "status": "done",
+     "detail": "",
+     "updated": "2026-10-11T11:23:38+10:00"
+    },
+    {
+     "id": "assets",
+     "title": "CC0 models, sounds, music, font",
+     "status": "done",
+     "detail": "537 models, 205 sounds, 4 music tracks.",
+     "updated": "2026-10-11T11:23:38+10:00"
+    },
+    {
+     "id": "sfx",
+     "title": "Sound system (pooled 3D sounds, music crossfade, ambience)",
+     "status": "done",
+     "detail": "",
+     "updated": "2026-10-11T11:23:38+10:00"
+    }
+   ]
+  },
+  {
+   "name": "3. World",
+   "steps": [
+    {
+     "id": "port_a",
+     "title": "Port A: Puffin Cove fishing village",
+     "status": "done",
+     "detail": "",
+     "updated": "2026-10-11T11:23:38+10:00"
+    },
+    {
+     "id": "port_b",
+     "title": "Port B: Rustbucket Docks industrial port",
+     "status": "done",
+     "detail": "",
+     "updated": "2026-10-11T11:23:38+10:00"
+    },
+    {
+     "id": "route",
+     "title": "7.5 km sea route: buoys, rocks, lighthouse islet, shipwreck, islands",
+     "status": "done",
+     "detail": "",
+     "updated": "2026-10-11T11:23:38+10:00"
+    },
+    {
+     "id": "daynight",
+     "title": "Day/night cycle (36 min day), sky, stars, lamps, lighthouses",
+     "status": "done",
+     "detail": "",
+     "updated": "2026-10-11T11:23:38+10:00"
+    },
+    {
+     "id": "weather",
+     "title": "Weather: storms, rain, lightning, fog",
+     "status": "done",
+     "detail": "",
+     "updated": "2026-10-11T11:23:38+10:00"
+    }
+   ]
+  },
+  {
+   "name": "4. Game flow & UI",
+   "steps": [
+    {
+     "id": "menu",
+     "title": "Main menu: solo, host, join by IP, customise, settings",
+     "status": "done",
+     "detail": "",
+     "updated": "2026-10-11T11:23:38+10:00"
+    },
+    {
+     "id": "lobby",
+     "title": "Lobby with roster, kick, set sail",
+     "status": "done",
+     "detail": "",
+     "updated": "2026-10-11T11:23:38+10:00"
+    },
+    {
+     "id": "flow",
+     "title": "Round flow: prep -> voyage -> arrive -> deliver -> results -> return leg",
+     "status": "done",
+     "detail": "",
+     "updated": "2026-10-11T11:23:38+10:00"
+    },
+    {
+     "id": "economy",
+     "title": "Money, payouts by cargo condition, special orders, repair fee",
+     "status": "done",
+     "detail": "",
+     "updated": "2026-10-11T11:23:38+10:00"
+    },
+    {
+     "id": "sinking",
+     "title": "Sinking -> rescue -> back to departure port",
+     "status": "done",
+     "detail": "",
+     "updated": "2026-10-11T11:23:38+10:00"
+    },
+    {
+     "id": "save",
+     "title": "Save / load progress",
+     "status": "done",
+     "detail": "",
+     "updated": "2026-10-11T11:23:38+10:00"
+    },
+    {
+     "id": "hud",
+     "title": "HUD: prompts, checklist, compass, gauges, notifications, debug overlay",
+     "status": "done",
+     "detail": "",
+     "updated": "2026-10-11T11:23:38+10:00"
+    },
+    {
+     "id": "office",
+     "title": "Harbour office: buy / select boats, finish delivery",
+     "status": "done",
+     "detail": "",
+     "updated": "2026-10-11T11:23:38+10:00"
+    }
+   ]
+  },
+  {
+   "name": "5. Cargo, shop & gear",
+   "steps": [
+    {
+     "id": "cargo_types",
+     "title": "Cargo catalogue (crates, piano, cow, chickens, ice, glass, fireworks...)",
+     "status": "active",
+     "detail": "",
+     "updated": "2026-10-11T11:23:38+10:00"
+    },
+    {
+     "id": "cargo_behaviour",
+     "title": "Cargo damage, melting, spoiling, escaping animals, explosions",
+     "status": "active",
+     "detail": "",
+     "updated": "2026-10-11T11:23:38+10:00"
+    },
+    {
+     "id": "shop",
+     "title": "Port shops with shelves and shopkeeper",
+     "status": "active",
+     "detail": "",
+     "updated": "2026-10-11T11:23:38+10:00"
+    },
+    {
+     "id": "helpers",
+     "title": "Straps, cargo net, dolly, life-jacket rack",
+     "status": "active",
+     "detail": "",
+     "updated": "2026-10-11T11:23:38+10:00"
+    },
+    {
+     "id": "food",
+     "title": "Food & drink (sandwich, energy drink, coffee, soup, dodgy burger)",
+     "status": "active",
+     "detail": "",
+     "updated": "2026-10-11T11:23:38+10:00"
+    },
+    {
+     "id": "repair",
+     "title": "Repair gear (planks + hammer, tape, bucket, pump, engine parts, extinguisher, fuel can)",
+     "status": "active",
+     "detail": "",
+     "updated": "2026-10-11T11:23:38+10:00"
+    },
+    {
+     "id": "safety",
+     "title": "Safety gear (life ring with rope, flare gun, first aid)",
+     "status": "active",
+     "detail": "",
+     "updated": "2026-10-11T11:23:38+10:00"
+    },
+    {
+     "id": "defence",
+     "title": "Defence (harpoon, bait bucket, air horn, fake shark fin)",
+     "status": "active",
+     "detail": "",
+     "updated": "2026-10-11T11:23:38+10:00"
+    },
+    {
+     "id": "nav",
+     "title": "Navigation (spotlight, radar, binoculars)",
+     "status": "active",
+     "detail": "",
+     "updated": "2026-10-11T11:23:38+10:00"
+    },
+    {
+     "id": "fun",
+     "title": "Fun stuff (fireworks, cannon, flamingo, fishing rod, pet seagull)",
+     "status": "active",
+     "detail": "",
+     "updated": "2026-10-11T11:23:38+10:00"
+    }
+   ]
+  },
+  {
+   "name": "6. Chaos at sea",
+   "steps": [
+    {
+     "id": "director",
+     "title": "Chaos director with difficulty scaling (1-10 players)",
+     "status": "active",
+     "detail": "",
+     "updated": "2026-10-11T11:23:38+10:00"
+    },
+    {
+     "id": "leaks_waves",
+     "title": "Leak bursts, rogue waves, big lurches",
+     "status": "active",
+     "detail": "",
+     "updated": "2026-10-11T11:23:38+10:00"
+    },
+    {
+     "id": "sharks",
+     "title": "Sharks (circle, bump hull, bite swimmers, steal cargo)",
+     "status": "active",
+     "detail": "",
+     "updated": "2026-10-11T11:23:38+10:00"
+    },
+    {
+     "id": "storms_fire",
+     "title": "Storm events, lightning strikes, engine fires",
+     "status": "active",
+     "detail": "",
+     "updated": "2026-10-11T11:23:38+10:00"
+    },
+    {
+     "id": "gulls",
+     "title": "Seagull flocks stealing food",
+     "status": "active",
+     "detail": "",
+     "updated": "2026-10-11T11:23:38+10:00"
+    },
+    {
+     "id": "fog_rocks",
+     "title": "Fog banks and rocks",
+     "status": "active",
+     "detail": "",
+     "updated": "2026-10-11T11:23:38+10:00"
+    },
+    {
+     "id": "npc_boats",
+     "title": "Other boats crossing your path",
+     "status": "active",
+     "detail": "",
+     "updated": "2026-10-11T11:23:38+10:00"
+    },
+    {
+     "id": "kraken",
+     "title": "Kraken tentacles (rare)",
+     "status": "active",
+     "detail": "",
+     "updated": "2026-10-11T11:23:38+10:00"
+    },
+    {
+     "id": "whirlpool",
+     "title": "Whirlpools",
+     "status": "active",
+     "detail": "",
+     "updated": "2026-10-11T11:23:38+10:00"
+    }
+   ]
+  },
+  {
+   "name": "7. Bigger boats",
+   "steps": [
+    {
+     "id": "barge",
+     "title": "Cargo Barge + deck crane",
+     "status": "active",
+     "detail": "",
+     "updated": "2026-10-11T11:23:38+10:00"
+    },
+    {
+     "id": "steamer",
+     "title": "Old Steamer + coal furnace",
+     "status": "active",
+     "detail": "",
+     "updated": "2026-10-11T11:23:38+10:00"
+    },
+    {
+     "id": "tug",
+     "title": "Tugboat towing a barge",
+     "status": "active",
+     "detail": "",
+     "updated": "2026-10-11T11:23:38+10:00"
+    },
+    {
+     "id": "forklift",
+     "title": "Forklift",
+     "status": "active",
+     "detail": "",
+     "updated": "2026-10-11T11:23:38+10:00"
+    }
+   ]
+  },
+  {
+   "name": "8. Finish & ship",
+   "steps": [
+    {
+     "id": "integration",
+     "title": "Full playthrough: menu -> both legs -> payout",
+     "status": "pending",
+     "detail": "",
+     "updated": ""
+    },
+    {
+     "id": "perf10",
+     "title": "10-player performance pass (60 FPS target)",
+     "status": "pending",
+     "detail": "",
+     "updated": ""
+    },
+    {
+     "id": "mp_test",
+     "title": "Multiplayer test with real game (host + clients)",
+     "status": "pending",
+     "detail": "",
+     "updated": ""
+    },
+    {
+     "id": "export_mac",
+     "title": "macOS build (with microphone permission)",
+     "status": "pending",
+     "detail": "",
+     "updated": ""
+    },
+    {
+     "id": "export_win",
+     "title": "Windows build",
+     "status": "pending",
+     "detail": "",
+     "updated": ""
+    },
+    {
+     "id": "review",
+     "title": "Independent review rounds until satisfied",
+     "status": "pending",
+     "detail": "",
+     "updated": ""
+    },
+    {
+     "id": "fixes",
+     "title": "Fix everything the review finds",
+     "status": "pending",
+     "detail": "",
+     "updated": ""
+    },
+    {
+     "id": "pr",
+     "title": "Pull request + CI",
+     "status": "pending",
+     "detail": "",
+     "updated": ""
+    }
+   ]
+  }
+ ],
+ "log": [
+  {
+   "t": "2026-10-11T11:23:38+10:00",
+   "msg": "Progress page created."
+  }
+ ]
+}
